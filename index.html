@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原価計算ツール</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            line-height: 1.6; 
+            padding: 20px; 
+        }
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
+        .patterns-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .pattern-card {
+            flex: 1;
+            min-width: 300px;
+            background: #f4f4f4;
+            border-radius: 5px;
+            padding: 20px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .result {
+            background: #e9ecef;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        .result-value {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        @media (max-width: 600px) {
+            .patterns-container {
+                flex-direction: row;
+            }
+            .pattern-card {
+                flex: 0 1 calc(50% - 20px);
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>原価計算ツール</h1>
+        <div class="patterns-container">
+            <!-- パターン1 -->
+            <div class="pattern-card">
+                <h2>パターン 1</h2>
+                <div class="input-group">
+                    <label for="commission1">代行手数料</label>
+                    <select id="commission1">
+                        <option value="0.03" selected>3%</option>
+                        <option value="0.06">6%</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="exchangeRate1">通貨レート</label>
+                    <input type="number" id="exchangeRate1" value="22" step="0.01">
+                </div>
+                <div class="input-group">
+                    <label for="shippingRate1">発送レート(元/KG)</label>
+                    <input type="number" id="shippingRate1" value="8" step="0.01">
+                </div>
+                <div class="input-group">
+                    <label for="chinesePrice1">中国価格(元)</label>
+                    <input type="number" id="chinesePrice1" step="0.01">
+                </div>
+                <div class="input-group">
+                    <label for="weight1">重量(グラム)</label>
+                    <input type="number" id="weight1">
+                </div>
+                <div class="input-group">
+                    <label for="expenses1">経費(円)ラベル代等</label>
+                    <input type="number" id="expenses1" value="22">
+                </div>
+                <div class="result">
+                    <label>仕入れ価格(円)</label>
+                    <div id="result1" class="result-value">0</div>
+                </div>
+            </div>
+
+            <!-- パターン2 -->
+            <div class="pattern-card">
+                <h2>パターン 2</h2>
+                <div class="input-group">
+                    <label for="commission2">代行手数料</label>
+                    <select id="commission2">
+                        <option value="0.03" selected>3%</option>
+                        <option value="0.06">6%</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="exchangeRate2">通貨レート</label>
+                    <input type="number" id="exchangeRate2" value="22" step="0.01">
+                </div>
+                <div class="input-group">
+                    <label for="shippingRate2">発送レート(元/KG)</label>
+                    <input type="number" id="shippingRate2" value="8" step="0.01">
+                </div>
+                <div class="input-group">
+                    <label for="chinesePrice2">中国価格(元)</label>
+                    <input type="number" id="chinesePrice2" step="0.01">
+                </div>
+                <div class="input-group">
+                    <label for="weight2">重量(グラム)</label>
+                    <input type="number" id="weight2">
+                </div>
+                <div class="input-group">
+                    <label for="expenses2">経費(円)ラベル代等</label>
+                    <input type="number" id="expenses2" value="22">
+                </div>
+                <div class="result">
+                    <label>仕入れ価格(円)</label>
+                    <div id="result2" class="result-value">0</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
